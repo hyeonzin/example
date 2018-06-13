@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ovely.mappers.MonthMapper">
+
+	<resultMap type="com.ovely.vo.MonthVO" id="monthResultMap">
+		<id property="cash_key" column="cash_key"/>
+		<result property="week_num" column="week_num"/>
+		<result property="month" column="month"/>
+		<result property="year" column="year"/>
+		<result property="month_total" column="month_total"/>
+		<result property="month_good" column="month_good"/>
+		<result property="month_bad" column="month_bad"/>
+		<result property="month_percent" column="month_percent"/>
+		<result property="month_front" column="month_front"/>
+		<result property="month_leg" column="month_leg"/>
+		<result property="month_lean" column="month_lean"/>
+		<result property="month_rest" column="month_rest"/>
+	</resultMap>
+	
+	<select id="getMonth" resultMap="monthResultMap">
+	SELECT * FROM week 
+	WHERE 
+	cash_key=#{cash_key} AND month=#{month} AND year=#{year}
+	</select>
+	
+</mapper>

@@ -6,13 +6,19 @@
 <mapper namespace="com.ovely.mappers.UserMapper">
 
 	<resultMap type="com.ovely.vo.UserVO" id="userResultMap">
-		<id property="id" column="id"/>
-		<result property="name" column="name"/>
+		<id property="cash_key" column="cash_key"/>
+		<result property="id" column="id"/>
+		<result property="pw" column="pw"/>
+		<result property="nickname" column="nickname"/>
+		<result property="uuid" column="uuid"/>
+		<result property="point" column="point"/>
+		<result property="profile_img" column="profile_img"/>
+		<result property="id_group" column="id_group"/>
 	</resultMap>
 	
 	
 	<insert id="create" parameterType="com.ovely.vo.UserVO">
-        INSERT into user (id, name) values(#{id}, #{name})
+        INSERT into user (id, pw, nickname, uuid, point, profile_img, id_group) values(#{id}, #{pw},#{nickname}, #{uuid},#{point}, #{profile_img},#{id_group})
    	</insert>
 
 	<select id="read" resultMap="userResultMap">
@@ -22,4 +28,16 @@
 			user
 	</select>
 
+	<select id="readOne" resultMap="userResultMap">
+		SELECT
+			*
+		FROM
+			user
+		WHERE
+			id = #{id}
+	</select>
+	
+	<select id="readNick" resultMap="userResultMap">
+	select * from user where nickname=#{nickname}
+	</select>
 </mapper>

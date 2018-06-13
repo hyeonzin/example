@@ -23,4 +23,14 @@ public class UserDao {
 	{
 		return session.selectList(namespace + ".read");
 	}
+	
+	public UserVO readOne(String id)
+	{
+		return session.selectOne(namespace + ".readOne", id);
+	}
+	
+	public UserVO readNick(String nickname) 
+	{
+		return session.selectOne(namespace+".readNick",nickname);
+	}
 }

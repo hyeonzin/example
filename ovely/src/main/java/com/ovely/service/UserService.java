@@ -22,4 +22,13 @@ public class UserService {
 	{
 		return userDao.read();
 	}
+	
+	public UserVO readOne(String id)
+	{
+		return userDao.readOne(id);
+	}
+	public UserVO readNick(String nickname) 
+	{
+		return userDao.readNick(nickname);
+	}
 }
